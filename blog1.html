@@ -90,6 +90,37 @@
 	<p>Below is the command to set the sticky bit on:</p>
         <br>
         <strong>chmod +t <em> [name_of_your_directory]</em></strong>
+	<br>
+	<br>
+	<h3>Example<h3>
+	<br>
+	<p>I created a new directory named <strong>allAccess</strong> and I changed the permission using command below</p> 
+	<br>
+	<strong>chmod 0777</strong>
+	<br>
+	<p>I also have previously created 2 users and set up their password using the command below </p>
+	<br>
+	<strong>useradd [<em>your_chosen_user_name</em>] </strong>
+	<strong>passwd [<em>your_chosen_user_name</em>] </strong>
+	<br>
+	<p>I then logged in as name1 and created a new file named file1 and logged in as name2 and created a new file named file2. See command below for creating new file</p>
+	<br>
+	<strong>touch [<em>your_chosen_file_name</em>] </strong>
+	<br>
+	<p>And then I logged back in as vm_2 user and set the sticky bit using: </p>
+	<br>
+	<strong>chmod +t [<em>name_of_your_directory</em>]</strong>
+	<br>
+	<p>As you can see using <strong>ls -ld</strong> we can see the permission for my directory-<strong>allAccess/</strong> is set indicated by 't' as shown below</p>
+	<br>
+	<br>
+        <img src="after_t.png" style = "width:600px">
+        <br>
+	<br>
+	<p>And then I logged back in as name2 and I tried to delete file1 that created by user name2 but I got denied. I still have the permission to create a new file and delete my file but I just can't delete a file that I don't create using this user name2. See picture below for details</p>
+	<br>
+	<br>
+	<img src="as_name2.png" style = "width:600px">
         <br>
 	<br>
 	<br>
