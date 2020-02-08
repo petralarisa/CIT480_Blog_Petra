@@ -64,7 +64,7 @@
         <h3>Sticky bit</h3>
         <p>For this blog, I decided to write about sticky bit</p>
         <br>
-        <p>You might be familiar with the command below </p>
+        <p>Think about the command below </p>
         <br>
         <strong>chmod 0754</strong>
         <br>
@@ -80,6 +80,9 @@
             <li> and the first digit?? well that is reserved for the sticky bit</li>
             </ul>
         </ul>
+	<br>
+	<h3>What is a sticky bit?</h3>
+	<p>"<strong>Sticky bit</strong> is a permission bit of a directory that can be set and unset which main purpose is to restrict so that only the owner of the file and the root user can rename or delete the file created inside the directory"</p>  
         <br>
         <h3>Why does it matter?</h3>
         <p>I learned that setting the sticky bit can help prevent accidental deletion of a file. What do I mean by that? Imagine if multiple group users have full permission to read, write, and execute. You want each users to be able to contribute and create their own file based on their tasks. However, while working, one of the user made a typo and ended up removing file created by other user. This can be a big chaos! In this case, sticky bit can limit the privilege while still keep the permission the same meaning that all user will still be able to create a file however they won't be able to delete the file. </p>
