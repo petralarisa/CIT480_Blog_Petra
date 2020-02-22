@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Petra's Senior Design Blog</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+	<link href="assets/css/gsdk.css" rel="stylesheet" />
+	<link href="assets/css/demo.css" rel="stylesheet" />
+
+	<!--     Font Awesome     -->
+	<link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="navbar-full">
+		<div class="container">
+			<nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<a href="https://github.com/petralarisa">
+							<div class="logo-container">
+								<div class="logo">
+									<img src="exif_temp_image-2.JPG">
+								</div>
+								<div class="brand">
+									Petra's Github
+								</div>
+							</div>
+						</a>
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>
+		</div><!--  end container-->
+
+		<div class='blurred-container'>
+			<div class="motto">
+				<div>Get</div>
+				<div class="border">things</div>
+				<div>Done!!</div>
+			</div>
+			<div class="img-src" style="background-image: url('banner.jpg')"></div>
+			<div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+		</div>
+
+	</div>
+
+
+
+	<div class="main">
+		<div class="container tim-container">
+
+			<div class="tim-title">
+      <h2>February, 21 2020</h2>
+        <h3>Lambda Function to Launch EC2 instance</h3>
+        <p>This week I will talk about automating and scheduling Lambda function to launch an instance at a specific time.</p>
+        <br>
+        <p>The first thing I did was I when to create an IAM role. Below is how I configured my IAM role:</p>
+        <ul>
+          <li> I created an IAM role to allow lambda functions to call EC2 on my behalf</li>
+          <li> I then attach AmazonEC2FullAccess </li>
+          <li> I skipped creating the tag</li>
+          <li> I then named my role Lambda_EC2_Full_Access</li>
+        </ul>
+        <br>
+        <p>Then I created my Lambda function</p>
+        <ul>
+          <li>I wrote my lambda function in python and imported boto3</li>
+          <li>See picture below for my code, I chose to launch an Amazon Machine Image and picked t2.micro for the instance type. I also specified the availability zone in 'us-east-1a'.</li>
+          <br>
+          <br>
+          <img src="lambda_pic.png" style = "width:600px">
+          <br>
+  	      <br>
+        </ul> 
+        <p>After that, I created an event rule on cloudwatch</p>
+        <ul>
+          <li> For event source, I picked schedule and I decided to use cron expression (more about cron on my previos blog-blog2).</li>
+          <li> For the target, I picked my lambda function that I just created.</li>
+          <br>
+          <br>
+          <img src="cloudwatch.png" style = "width:600px">
+          <br>
+  	      <br>
+          <li> I then named it cron_launch and I checked the enabled check box</li>
+        </ul>
+				<p>And then I went back again to my lambda function and went to the execution role section and attach the IAM role I created earlier to my lambda function.</p>
+        <br>
+        <br>
+        <img src="attachiam.png" style = "width:600px">
+        <br>
+	      <br>
+        <p> I then configured a test event so I can use it to test my lambda function to make sure it is working. I just kept all the default test configuration as we can see from the picture below and then I clicked create. </p>
+				<p>Below is the format:</p>
+        <br>
+	      <br>
+        <img src="create_test.png" style = "width:600px">
+        <br>
+	      <br>
+        <p>If your lambda function was successfully launched you will see this: </p>
+        <br>
+	      <br>
+        <img src="success_log.png" style = "width:600px">
+        <br>
+	      <br>
+	<br>
+        <br>
+	<br>
+	<br>
+	<p> <a href="index.html"> <strong> Back to Index page <strong> </a> </p>
+	<p> <a href="spring20.html"> <strong> Back to Spring2020 page <strong> </a> </p>
+
+			</div>
+		</div>
+	</div>
+
+
+
+			<!-- end main -->
+
+
+		</body>
+
+
+		</html>
