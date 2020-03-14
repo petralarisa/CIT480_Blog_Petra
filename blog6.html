@@ -69,19 +69,19 @@
           <p>This step is similar to what we did on <a href="blog0.html">blog0</a>. We will also be using EC2 instance. You may pick your preferred region, but for me in here I will be using us-east-1 (North Virginia). You can check which region you are on by looking at the upper right hand of your management console.</p>
           <br>
           <br>
-          <img src="wp-1.png" style = "width:600px">
+          <img src="wp-0.png" style = "width:600px">
           <br>
           <br>
           <p>Once you picked a region, go to EC2 service and click on the <strong>instances</strong> tab on the left menu. Once you clicked on the instances tab, you will see an option to launch an instance. Go click on launch an instance button.</p>
           <br>
           <br>
-          <img src="wp-2.png" style = "width:600px">
+          <img src="wp-1.png" style = "width:600px">
           <br>
           <br>
           <p>Now it's time to configure our EC2 instance. When you are prompted to pick the AMI, click on the AWS marketplace and look for Wordpress. You may also type wordpress on the search bar and once pick the <strong>WordPress certified by bitnami and automattic</strong>. See picture below for reference.</p>
           <br>
           <br>
-          <img src="wp-3.png" style = "width:600px">
+          <img src="wp-2.png" style = "width:600px">
           <br> 
           <br>
           <p>You will be presented a detailed information about the rate and just scroll all the way down and click <strong>continue</strong></p>
@@ -89,13 +89,13 @@
           <p>For the instance type, I picked t2 micro which is free tier eligible. And for the rest of the configuration I kept the default configuration. I also named my instance by adding the tag, see picture below:</p>
           <br>
           <br>
-          <img src="wp-4.png" style = "width:600px">
+          <img src="wp-3.png" style = "width:600px">
           <br> 
           <br>
           <p>For security group, the default configuration already has rules for ssh, http, and https so I will keep it just like that. You can always modify the source IP to make it more secure if you want to.</p>
           <br>
           <br>
-          <img src="wp-5.png" style = "width:600px">
+          <img src="wp-4.png" style = "width:600px">
           <br> 
           <br>
           <p>Now we are ready to launch our wordpress instance, so just proceed and launch your instance. When asked about the keypair, you may assign your existing keypair or create a new one or even proceed without keypair. You don't have to use any keypair if you're not planning on sshing into this instance. If you do, make sure you use a keypair.</p>
@@ -103,7 +103,7 @@
           <p>Once your EC2 instance is fully running, you can start setting up your WordPress site. To access your wordpress login site, look for the public IP of your EC2 instance we created earlier and copy it into your browser. You can find this under the description of your instance. See picture below for reference:</p>
           <br>
           <br>
-          <img src="wp-6.png" style = "width:600px">
+          <img src="wp-5.png" style = "width:600px">
           <br>
           <br>
           <p>Once you access your wordpress site by using the public IP of your instance, you will be directed to a Sample page. You can scroll down and look for <strong>Log in</strong> under the <strong>Meta</strong> menu</p>
