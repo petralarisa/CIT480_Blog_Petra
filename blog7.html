@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Petra's Senior Design Blog</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  
+  <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/gsdk.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <!--     Font Awesome     -->
+  <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="navbar-full">
+    <div class="container">
+      <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="https://github.com/petralarisa">
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="exif_temp_image-2.JPG">
+                </div>
+                <div class="brand">
+                  Petra's Github
+                </div>
+              </div>
+            </a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div><!--  end container-->
+
+    <div class='blurred-container'>
+      <div class="motto">
+        <div>Get</div>
+        <div class="border">things</div>
+        <div>Done!!</div>
+      </div>
+      <div class="img-src" style="background-image: url('banner.jpg')"></div>
+      <div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main">
+    <div class="container tim-container">
+
+      <div class="tim-title">
+        <h2>March, 27 2020</h2>
+        <h3>TCP 3 Way Handshake</h3>
+        <p>This week I will talk about TCP 3 way handshake and a little bit about some of the TCP flags.</p>
+        <br>
+        <h3>What is TCP?</h3>
+          <br>
+          <p>TCP stands for Transmission Control Protocol. TCP is one of the main protocol in the TCP/IP suite. While IP protocol deals only with the packets, TCP enables two hosts to establish connection and exchange streams of data. This happens in the transport layer. With that being said, TCP is a protocol that manages data exchange in connection oriented environment.</p>
+          <br>
+        <h3>What is three way handshake then?</h3>
+          <br>
+          <br>
+          <img src="3way.png" style = "width:600px">
+          <br>
+          <br>
+            <p>Three way handshake is how TCP connection is established. There are 3 steps in establishing the connection. These three steps are:</p>
+            <ul>
+            <li>Step 1: Client initiates the connection by sending a packet with a SYN flag set. A random number generator will give a sequence number for this packet (let's say the sequence number is x). Then the client will wait for a response from the server which brings us to step2.</li>
+            <li>Step 2: If the server received the packet sent in step 1, the server will then respond to the client's request by sending back a packet with the SYN and ACK flag set. The random number generator will also give a sequence number for this packet (let's say the sequence number is y). So now this packet would have sequence number of y and also an ACK number of x+1. If the server never received the packet sent from step 1, step 2 will not happen and the client will resend the packet  again.</li>
+            <li>Step 3: This is the final step on establishing the connection. This time, the client will send a packet to the server with ACK flag set. This packet will have a sequence number of x+1 and an ACK number of y+1. And now the connection is fully established and the data exchange may begin.</li>
+            </ul>
+          <br>
+        <h3>Some TCP flags:</h3>
+        <p>As we've seen in the previous section. There are SYN and also ACK flags. These two flags are examples of TCP flags. There are more TCP flags that are used to indicate the particular state of the connections. Here are 4 common TCP flags that you might see: </p>
+        <ul>
+          <li><strong>SYN</strong>: SYN stands for Syncronization. It's pretty much just like saying hello. It is used to syncronize the sequence number.</li>
+          <li><strong>ACK</strong>: ACK stands for acknowledge. This flag is used to acknowledge the packet that was received successfully.</li>
+          <li><strong>FIN</strong>: FIN stands for finish. This flag is used in terminating connections when data exchange is done.</li>
+          <li><strong>RST</strong>: RST stands for reset. This flag is also used in terminating connections like FIN flag, however this flag is used when the sender feels something wrong with the TCP connection or that the conversation should not exist.</li>
+        </ul>
+          <br>
+          <br>
+          <br>
+          <p> <a href="index.html"> <strong> Back to Index page </strong> </a> </p>
+          <p> <a href="spring20.html"> <strong> Back to Spring2020 page </strong> </a> </p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- end main -->
+
+
+  </body>
+
+
+  </html>
