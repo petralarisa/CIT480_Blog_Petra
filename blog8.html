@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Petra's Senior Design Blog</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  
+  <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/gsdk.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <!--     Font Awesome     -->
+  <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="navbar-full">
+    <div class="container">
+      <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="https://github.com/petralarisa">
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="exif_temp_image-2.JPG">
+                </div>
+                <div class="brand">
+                  Petra's Github
+                </div>
+              </div>
+            </a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div><!--  end container-->
+
+    <div class='blurred-container'>
+      <div class="motto">
+        <div>Get</div>
+        <div class="border">things</div>
+        <div>Done!!</div>
+      </div>
+      <div class="img-src" style="background-image: url('banner.jpg')"></div>
+      <div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main">
+    <div class="container tim-container">
+
+      <div class="tim-title">
+        <h2>April, 03 2020</h2>
+        <h3>Setting Up Kubernetes on Mac</h3>
+        <p>I have decided that I want to learn kubernetes. So before I can get hands-on and play around with it I need to know what it is and how to prepare the environment needed.</p>
+        <br>
+        <h3>What is Kubernetes?</h3>
+          <br>
+          <p>Kubernetes is a platform for working with containers like docker. The word 'working' in here refers to deployment, scaling, and monitoring. In kubernetes we have a master node and this node is a part of a cluster, meaning that this master node is aware of other servers within the clusters that we have created and we can use to deploy the containers. During deployment, we are going to tell kubernetes what image do we want to use as the base and we can also add some other configuration which then will be the deployment (our application). Kubernetes will keep track of all of the configurations we set during deployment. This deployment has a deployment controller. What this does is to monitor, like when our application goes down, kubernetes will know about it and it will try to 'autoheal' by spinning another container and recover for itself. In terms of scaling, kubernetes has the ability to figure out where to put our deployment when we need to scale up.</p>
+          <br>
+        <h3>What do we need to install before playing around with kubernetes?</h3>
+          <br>
+          <p>Before we start installing some tools, we need to make sure that virtualization is supported on our machine. For mac, you can do it by using the command: <strong>sysctl -a | grep -E --color 'machdep.cpu.features|VMX'</strong></p>
+          <p>If after you run the command successfully you receive an output that has <strong>VMX</strong> on it then it means that virtualization feature is enabled on your machine.</p>
+          <p>So now let's go to the list of tools we need to install.</p>
+          <br>
+          <ul>
+            <li>kubectl</li>
+            <li>hypervisor</li>
+            <li>minikube</li>
+          </ul>
+        <h3>Installing kubectl on mac through terminal</h3>
+        <p>Below are the list of commands I used. It is written in order.</p>
+        <ul>
+          <li><strong>curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl"</strong></li>
+          <li><strong>chmod +x ./kubectl</strong> --> this command is used to make it excecutable</li>
+          <li><strong>sudo mv ./kubectl /usr/local/bin/kubectl</strong> --> moving it to my PATH</li>
+          <li><strong>kubectl version --client</strong> --> to confirm if the installation was successfully done</li>
+        </ul>
+        <h3>Installing minikube on mac through terminal</h3>
+        <p>Since I already have hypervisor installed, I didn't need to install it again. In my case, I have vmware fusion. If you want to get it for free, you can download and install it using your CSUN account on CSUN imagine. We have the perks as CSUN student to get it for free.</p>
+        <p>Below are the list of commands I used to install minikube. It is written in order.</p>
+        <ul>
+          <li><strong>brew install minikube</strong> --> I used brew because I have homebrew installed. If you don't want to use homebrew, you may use the next command.</li>
+          <li><strong>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
+  && chmod +x minikube</strong> --> this command is used as an alternative to using homebrew as seen in the previous command</li>
+          <li><strong>sudo mv minikube /usr/local/bin</strong> --> if you want to move it to your PATH</li>
+          <li><strong>minikube start --driver=vmwarefusion</strong> --> testing by starting a kubernetes cluster. I put vmwarefusion because I used vmware fusion for my hypervisor.</li>
+          <li><strong>minikube status</strong> --> this should output information about the host, kubelet, apiserver, and kubeconfig.</li>
+          <li><strong>minikube stop</strong> --> to stop the cluster</li>
+        </ul>
+          <br>
+          <br>
+          <br>
+          <p> <a href="index.html"> <strong> Back to Index page </strong> </a> </p>
+          <p> <a href="spring20.html"> <strong> Back to Spring2020 page </strong> </a> </p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- end main -->
+
+
+  </body>
+
+
+  </html>
