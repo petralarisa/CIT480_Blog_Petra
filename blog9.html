@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Petra's Senior Design Blog</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  
+  <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/gsdk.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <!--     Font Awesome     -->
+  <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="navbar-full">
+    <div class="container">
+      <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="https://github.com/petralarisa">
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="exif_temp_image-2.JPG">
+                </div>
+                <div class="brand">
+                  Petra's Github
+                </div>
+              </div>
+            </a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div><!--  end container-->
+
+    <div class='blurred-container'>
+      <div class="motto">
+        <div>Get</div>
+        <div class="border">things</div>
+        <div>Done!!</div>
+      </div>
+      <div class="img-src" style="background-image: url('banner.jpg')"></div>
+      <div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main">
+    <div class="container tim-container">
+
+      <div class="tim-title">
+        <h2>April 10, 2020</h2>
+        <h3>Creating Kubernetes Clusters</h3>
+        <p>Last week we covered a little bit about kubernetes on <a href="blog8.html">blog 8</a>. We have already installed and setup our environment and now we are ready to start using kubernetes. Today we will talk about creating kubernetes cluster.</p>
+        <br>
+        <h3>A little review about kubernetes</h3>
+          <br>
+          <p>Based on the documentation from kubernetes.io, Kubernetes coordinates a highly available cluster of computers that are connected to work as a single unit. It automates the distribution and scheduling of application containers across a cluster in a more efficient way.</p>
+          <br>
+        <h3>Kubernetes Clusters</h3>
+          <br>
+          <p>Kubernetes clusters consists of two main resources. The two are the <strong>master</strong> resource and the <strong>node</strong> resource. The <strong>master</strong> resource's main duty is to coordinates or manage the clusters. The <strong>node</strong> resources are the workers that run the applications. It is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster. The nodes communicate with the master using the Kubernetes API.</p>
+          <br>
+        <h3>Creating Kubernetes Cluster</h3>
+        <p>Below are the list of commands I used: </p>
+        <ul>
+          <li><strong>minikube start --driver=vmwarefusion</strong> --> first we would like to start a kubernetes cluster using this command </li>
+          <li><strong>kubectl cluster-info</strong> --> this command is used to get information about our kubernetes cluster. It will give us an output of the IP address and the DNS server where our master is running.</li>
+          <li><strong>kubectl get nodes</strong> --> this command will list all of the available nodes that can be used to host our application. If it says ready under the status column, it means that the node is ready to accept application for deployment.</li>
+          <li><strong>kubectl create deployment [insert_deployment_name] --image=[insert_full_path_for_image_location]</strong> --> this command is used to create a deployment</li>
+          <li><strong>kubectl get deployments</strong> --> this command is used to list all of the deployments we have created and provide some information about the deployments.</li>
+        </ul>
+        <br>
+        <p>Right now, the app that we just deployed is visible to other services within the same kubernetes cluster, but it is not visible to public. The reason is because it is currently running inside a private network. We can use <strong>kubectl proxy</strong> to create a proxy that will forward communications into the cluster-wide, private network. After running that command, we can finally have a connection between our host and kubernetes cluster. The proxy enables direct access to the API from our terminal. We can also use the command <strong>curl http://localhost:8001/</strong> to get the list of apis we're using. </p>
+        <p>Once we are done, we can stop the cluster by using the command below</p>
+        <ul>
+        <li><strong>minikube stop</strong> --> to stop the cluster</li>
+        </ul>
+          <br>
+          <br>
+          <br>
+          <p> <a href="index.html"> <strong> Back to Index page </strong> </a> </p>
+          <p> <a href="spring20.html"> <strong> Back to Spring2020 page </strong> </a> </p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- end main -->
+
+
+  </body>
+
+
+  </html>
