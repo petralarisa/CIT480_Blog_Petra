@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Petra's Senior Design Blog</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  
+  <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/gsdk.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <!--     Font Awesome     -->
+  <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="navbar-full">
+    <div class="container">
+      <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="https://github.com/petralarisa">
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="exif_temp_image-2.JPG">
+                </div>
+                <div class="brand">
+                  Petra's Github
+                </div>
+              </div>
+            </a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div><!--  end container-->
+
+    <div class='blurred-container'>
+      <div class="motto">
+        <div>Get</div>
+        <div class="border">things</div>
+        <div>Done!!</div>
+      </div>
+      <div class="img-src" style="background-image: url('banner.jpg')"></div>
+      <div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main">
+    <div class="container tim-container">
+
+      <div class="tim-title">
+        <h2>April 17, 2020</h2>
+        <h3>Kubernetes Part 3-After Deployment</h3>
+        <p>Last week I covered a little bit about creating kubernetes clusters and deployments on <a href="blog9.html">blog 9</a>. This time we will explore a little bit more about the kubernetes <strong>pods</strong> and <strong>nodes</strong>.</p>
+        <br>
+        <h3>What is a Kubernetes pod?</h3>
+          <br>
+          <p>A kubernetes pod is a group of containers that are deployed together on the same host. With that being said, all containers inside this pod are sharing some resources. All these containers within a single pod share the same storage, network, and also specifications on how to run the containers. </p>
+          <br>
+          <p>A pod is an atomic unit on kubernetes. Whenever we create a deployment, pods are created with containers inside them. Each Pod is tied to the Node where it is scheduled. It will remain inside the node until it is terminated or deleted. If there's a failure on the node, identical pods will be created and will be placed in other available nodes within the cluster.</p>
+          <br>
+        <h3>Kubernetes Node</h3>
+          <br>
+          <p>A pod always run on a node. As we recall, a node is the workers that runs the applications. It is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster.A Node can have multiple pods, and the Kubernetes master automatically handles scheduling the pods across the Nodes in the cluster. </p>
+          <br>
+          <p>Each node would run:</p>
+          <p>
+          <ul>
+            <li><strong>kubelet</strong>: this is a process that handles the communications between the kubernetes master and the node. A kubelet manages pods and containers running on a machine.</li> 
+            <li><strong>container runtime</strong>: responsibles for pulling the container image from a registry, unpacking the container, and running the application.</li>
+          </ul>
+          </p>
+          <br>
+        <h3>Some useful kubectl commands related to nodes and pods:</h3>
+        <p>
+        <ul>
+          <li><strong>kubectl get</strong> --> to list all resources </li>
+          <li><strong>kubectl describe</strong> --> this command is used to show detailed information about a resource.</li>
+          <li><strong>kubectl logs </strong> --> this command will print the logs from a container in a pod.</li>
+          <li><strong>kubectl exec</strong> --> this command is used to execute a command on a container in a pod</li>
+        </ul>
+        </p>
+          <br>
+          <br>
+          <br>
+          <p> <a href="index.html"> <strong> Back to Index page </strong> </a> </p>
+          <p> <a href="spring20.html"> <strong> Back to Spring2020 page </strong> </a> </p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- end main -->
+
+
+  </body>
+
+
+  </html>
