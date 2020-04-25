@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Petra's Senior Design Blog</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+  <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/gsdk.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <!--     Font Awesome     -->
+  <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="navbar-full">
+    <div class="container">
+      <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="https://github.com/petralarisa">
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="exif_temp_image-2.JPG">
+                </div>
+                <div class="brand">
+                  Petra's Github
+                </div>
+              </div>
+            </a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div><!--  end container-->
+
+    <div class='blurred-container'>
+      <div class="motto">
+        <div>Get</div>
+        <div class="border">things</div>
+        <div>Done!!</div>
+      </div>
+      <div class="img-src" style="background-image: url('banner.jpg')"></div>
+      <div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main">
+    <div class="container tim-container">
+
+      <div class="tim-title">
+        <h2>April 24, 2020</h2>
+        <h3>Kubernetes Part 4-Go Public</h3>
+        <p>Last week I learned about <strong>Kubernetes pod</strong> and <strong>Kubernetes node</strong>. Previously I also learned about creating a deployment on kubernetes. This time I learned a little bit about using <strong>service</strong> to expose the app.</p>
+        <br>
+        <h3>What is a Kubernetes service?</h3>
+        <br>
+        <p>From last week, I learned that a group of containers that are deployed together on the same host are put inside a pod. Each pod is assigned a unique IP address that is being shared among all of the containers inside the pod. Eventho each node has its own unique IP address, those IP address aren't exposed outside the cluster without <strong>Kubernetes Service</strong>. <strong>Kubernetes Service</strong> is an abstraction which defines a logical set of Pods and a policy by which to access them. Services enable a loose coupling between dependent Pods. This <strong>Kubernetes Service</strong> is usually defined using a YAML file. The set of Pods targeted by a Service is usually determined by a LabelSelector.</p>
+        <br>
+        <h3>Different ways kubernetes service can be exposed</h3>
+        <br>
+        <p>
+          <ul>
+            <li><strong>ClusterIP (default)</strong>: Exposes the Service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.</li>
+            <li><strong>NodePort</strong>: Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using <strong>NodeIP:NodePort</strong>. Superset of ClusterIP.</li>
+            <li><strong>LoadBalancer</strong>: Creates an external load balancer in the current cloud (if supported) and assigns a fixed, external IP to the Service. Superset of NodePort.</li>
+            <li><strong>ExternalName</strong>: Exposes the Service using an arbitrary name (specified by externalName in the spec) by returning a CNAME record with the name.</li>
+          </ul>
+        </p>
+        <br>
+        <h3>Services and Labels</h3>
+        <br>
+        <p>Services match a set of Pods using labels and selectors, a grouping primitive that allows logical operation on objects in Kubernetes. Labels are key/value pairs attached to objects and can be used in any number of ways:</p>
+        <br>
+        <p>
+          <ul>
+            <li>Designate objects for development, test, and production</li>
+            <li>Embed version tags</li>
+            <li>Classify an object using tags</li>
+          </ul>
+        </p>
+        <br>
+        <h3>Some useful kubectl commands related to nodes and pods:</h3>
+        <p>
+          <ul>
+            <li><strong>kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080</strong> --> create a new service and expose it to external traffic using Nodeport as a parameter for the type.</li>
+            <li><strong>kubectl describe</strong> --> this command is used to show detailed information about a resource. We can see which port was opened externally by looking at the NodePort section.</li>
+            <li><strong>export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')</strong> --> this command is used to create an environment variable that holds the nodeport assigned. </li>
+            <li><strong>kubectl describe deployment</strong> --> to check the label name</li>
+            <li><strong>kubectl label pod $POD_NAME app=v1</strong> --> To apply a new label we use the label command followed by the object type, object name and the new label.</li>
+            <li><strong>kubectl describe pods $POD_NAME</strong> --> to check if the label is attached to the pod</li>
+            <li><strong>kubectl get pods -l app=v1</strong> --> to query the list of pods using the new label</li>
+            <li><strong>kubectl delete service -l run=kubernetes-bootcamp</strong> --> to clean up the service</li>
+          </ul>
+        </p>
+        <br>
+        <br>
+        <br>
+        <p> <a href="index.html"> <strong> Back to Index page </strong> </a> </p>
+        <p> <a href="spring20.html"> <strong> Back to Spring2020 page </strong> </a> </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- end main -->
+
+
+</body>
+
+
+</html>
