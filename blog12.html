@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Petra's Senior Design Blog</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+  <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/gsdk.css" rel="stylesheet" />
+  <link href="assets/css/demo.css" rel="stylesheet" />
+
+  <!--     Font Awesome     -->
+  <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="navbar-full">
+    <div class="container">
+      <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="https://github.com/petralarisa">
+              <div class="logo-container">
+                <div class="logo">
+                  <img src="exif_temp_image-2.JPG">
+                </div>
+                <div class="brand">
+                  Petra's Github
+                </div>
+              </div>
+            </a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div><!--  end container-->
+
+    <div class='blurred-container'>
+      <div class="motto">
+        <div>Get</div>
+        <div class="border">things</div>
+        <div>Done!!</div>
+      </div>
+      <div class="img-src" style="background-image: url('banner.jpg')"></div>
+      <div class='img-src blur' style="background-image: url('banner.jpg')"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main">
+    <div class="container tim-container">
+
+      <div class="tim-title">
+        <h2>May 01, 2020</h2>
+        <h3>Terraform</h3>
+        <p>In this blog, I will talk a little bit about an Infrastructure as a code tool that I have been using for the past couple of moths which is terraform. </p>
+        <br>
+        <h3>Why Terraform?</h3>
+        <p>
+          <ul>
+            <li>It is cloud agnostic, meaning that it can be used in different cloud providers. In my case, I am using Amazon Web Services but you can use terraform for other cloud providers as well.</li>
+            <li>Allows building, changing, and versioning infrastructure safely and efficiently</li>
+            <li>Easy to build and to destroy the whole infrastructure</li>
+            <li>For a consistent configuration</li>
+            <li>Open source</li>
+          </ul>
+        </p>
+        <br>
+        <br>
+        <h3>Installing terraform</h3>
+        <p>Since I am using mac, I will be showing the installation on mac. If you have homebrew installed on your mac, you may just run the command bellow:</p>
+        <p><strong>brew install terraform</strong></p>
+        <p>If you don't have homebrew installed or if you don't want to use homebrew, you can download the binary zip file manually from hashicorp right <a href="https://www.terraform.io/downloads.html">here</a>. And once you finished downloading it, unzip the file and then copy the binary to /usr/local/bin/terraform using the command below:</p>
+        <p><strong>cp $HOME/Downloads/terraform /usr/local/bin/</strong></p>
+        <p>To verify that you have successfully installed terraform, you can use the command below:</p>
+        <p><strong>terraform -v</strong></p>
+        <br>
+        <br>
+        <h3>Creating a simple configuration file to launch an EC2 instance</h3>
+        <br>
+        <p>The first thing you will need, is you will need to create a file with <strong>.tf</strong> extension using a text editor of your choice. We first would like to specify the provider for our infrastructure. In my case, I am using aws so, please refer to the following code below:</p>
+        <br>
+        <br>
+        <img src="provider.png" style = "width:600px">
+        <br>
+        <br>
+        <p>The next part is to build our ec2 instance configuration, we will then use the aws_instance resource. For this resource, there are two required argument we need to specify and those are the ami and instance type. In this example I also tagged the instance to name it. See the following code for the syntax: </p>
+        <br>
+        <br>
+        <img src="ec2_code.png" style = "width:600px">
+        <br>
+        <br>
+        <img src="full_code.png" style = "width:600px">
+        <br>
+        <br>
+        <h3>Executing your terraform code:</h3>
+        <p>The very first step that we need to do is to open our terminal and go to the directory where you save your terraform file. Once you are inside that directory, you can run the commands below:</p>
+        <p>
+          <ul>
+            <li><strong>terraform init</strong>: this is the very first command you will need to run to initialize the working directory containing the terraform configuration file</li>
+            <li><strong>terraform plan</strong>: Once you initialized your working directory, you may run terraform plan to make sure that you don't have any syntax error and to see the recap of the resources that will be built</li>
+            <li><strong>terraform apply</strong>: this command will actually execute your code and will build all of the resources that you specify inside your terraform configuration files</li>
+          </ul>
+        </p>
+        <br>
+        <br>
+        <br>
+        <p> <a href="index.html"> <strong> Back to Index page </strong> </a> </p>
+        <p> <a href="spring20.html"> <strong> Back to Spring2020 page </strong> </a> </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- end main -->
+
+
+</body>
+
+
+</html>
